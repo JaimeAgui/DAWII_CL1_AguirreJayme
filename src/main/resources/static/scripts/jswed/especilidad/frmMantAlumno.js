@@ -36,33 +36,35 @@ $(document).on("click", ".btnactualizar", function(){
                     `<option value="${value.idesp}">${value.nomesp}</option>`
                 )
             })
-            $("#cboespecilidad").val(idesp);
+            $("#cboespecilidad").val(idespe);
         }
     })
     $("#modalNuevo").modal("show");
 });
 
-$(document).on("click", "#btnguardar", function(){
+
+$(document).on("click", "#btnregistrar", function(){
     $.ajax({
         type: "POST",
         url: "/registrarAlumno",
         contentType: "application/json",
         data: JSON.stringify({
-            idalumno;: $("#hddidalumno").val(),
-            apealumno;: $("#txtnombre").val(),
-            nomalumno;: $("#txtapellido").val(),
+            idalumno: $("#hddidalumno").val(),
+            apealumno: $("#txtnombre").val(),
+            nomalumno: $("#txtapellido").val(),
             idesp: $("#cboespecilidad").val(),
-            proce;: $("#txtprocedencia").val()
+            proce: $("#txtprocedencia").val()
         }),
         success: function(resultado){
         if(resultado.respuesta){
-                 ListarAlumno()
                     }
             alert(resultado.mensaje);
         }
     });
     $("#modalNuevo").modal("hide");
 });
+
+
 
 $(document).on("click", ".btneliminar", function(){
     var idalumno = $(this).attr("data-idalumno");
@@ -82,6 +84,7 @@ $(document).on("click", ".btneliminar", function(){
     });
 
 });
+
 
 function ListarAlumno(){
     $.ajax({

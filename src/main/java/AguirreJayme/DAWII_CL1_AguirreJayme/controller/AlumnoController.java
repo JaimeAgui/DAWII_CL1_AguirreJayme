@@ -26,21 +26,18 @@ public class AlumnoController {
 
     @PostMapping("/registrarAlumno")
     @ResponseBody
-    public ResultadoResponse registrarAlumno(@RequestBody
-                                             AlumnoRequest aluRequest){
+    public ResultadoResponse registrarAlumno(@RequestBody AlumnoRequest aluRequest){
         String mensaje = "alumno registrada correctamente";
         Boolean respuesta = true;
         try{
             Alumno objAlumno= new Alumno();
-
             objAlumno.setIdalumno(aluRequest.getIdalumno());
             objAlumno.setApealumno(aluRequest.getApealumno());
             objAlumno.setNomalumno(aluRequest.getNomalumno());
-            objAlumno.setProce(aluRequest.getProce());
             Especilidad objespec = new Especilidad();
             objespec.setNomesp(aluRequest.getIdesp());
-
             objAlumno.setEspecilidad(objespec);
+            objAlumno.setProce(aluRequest.getProce());
             alumnoService.registrarAlumno(objAlumno);
         }catch (Exception ex){
             mensaje = "alumno no registrada";
