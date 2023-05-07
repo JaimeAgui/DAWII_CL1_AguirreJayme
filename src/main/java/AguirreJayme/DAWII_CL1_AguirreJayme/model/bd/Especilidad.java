@@ -24,6 +24,7 @@ public class Especilidad {
     private String nomesp;
 
     @JsonManagedReference
-    @OneToMany
+    @OneToMany(mappedBy = "especilidad",
+            cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Alumno> listasala = new ArrayList<>();
 }

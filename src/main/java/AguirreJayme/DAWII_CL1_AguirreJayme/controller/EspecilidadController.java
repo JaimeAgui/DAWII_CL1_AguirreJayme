@@ -12,12 +12,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 @Controller
-@RequestMapping("/especilidad")
+@RequestMapping("/Especilidad")
 public class EspecilidadController {
 
     @Autowired
     private EspecilidadService especilidadService;
-
     @GetMapping("/listarEspecilidad")
     @ResponseBody
     public List<Especilidad> listarEstados(){

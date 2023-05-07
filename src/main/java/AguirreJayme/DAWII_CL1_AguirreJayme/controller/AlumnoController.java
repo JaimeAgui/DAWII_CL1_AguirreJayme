@@ -66,10 +66,10 @@ public class AlumnoController {
         return ResultadoResponse.builder()
                 .mensaje(mensaje).respuesta(respuesta).build();
     }
+
     @GetMapping("/listarAlumno")
     @ResponseBody
-    public List<Alumno> listarAlumnos(){return alumnoService.listarAlumno();
-    }
+    public List<Alumno> listarAlumno(){return alumnoService.listarAlumno();}
 
 
 }
