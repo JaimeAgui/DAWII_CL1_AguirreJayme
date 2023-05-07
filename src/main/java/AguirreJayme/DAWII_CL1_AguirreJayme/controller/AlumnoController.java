@@ -13,17 +13,15 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/alumno")
 public class AlumnoController {
 
     @Autowired
     private AlumnoService alumnoService;
 
-    @GetMapping("/frmMantAlumno")
-    public String frmMantAlumno(Model model){
-        model.addAttribute("listaalumno",
-                alumnoService.listarAlumno());
-        return "alumno/frmMantAlumno";
+    @GetMapping("/lista")
+    public String lista(Model model){
+        model.addAttribute("listaAlumno", alumnoService.listarAlumno());
+        return "frmMantAlumno";
     }
 
     @PostMapping("/registrarAlumno")
@@ -35,16 +33,14 @@ public class AlumnoController {
         try{
             Alumno objAlumno= new Alumno();
 
-            objAlumno.setIdAlumno(aluRequest.getIdAlumno());
-            objAlumno.setNomAlumno(aluRequest.getNomAlumno());
-            objAlumno.setApeAlumno(aluRequest.getApeAlumno());
-            objAlumno.setIdEsp(aluRequest.getIdEsp());
+            objAlumno.setIdalumno(aluRequest.getIdalumno());
+            objAlumno.setApealumno(aluRequest.getApealumno());
+            objAlumno.setNomalumno(aluRequest.getNomalumno());
             objAlumno.setProce(aluRequest.getProce());
-
             Especilidad objespec = new Especilidad();
-            objespec.setNomEsp(aluRequest.getIdEsp());
+            objespec.setNomesp(aluRequest.getIdesp());
 
-            objAlumno.setEstado(objespec);
+            objAlumno.setEspecilidad(objespec);
             alumnoService.registrarAlumno(objAlumno);
         }catch (Exception ex){
             mensaje = "alumno no registrada";
@@ -62,7 +58,7 @@ public class AlumnoController {
         String mensaje = "alumno eliminada correctamente";
         Boolean respuesta = true;
         try{
-            alumnoService.eliminarAlumno(aluRequest.getIdAlumno());
+            alumnoService.eliminarAlumno(aluRequest.getIdalumno());
         }catch (Exception ex){
             mensaje = "alumno no eliminada";
             respuesta = false;

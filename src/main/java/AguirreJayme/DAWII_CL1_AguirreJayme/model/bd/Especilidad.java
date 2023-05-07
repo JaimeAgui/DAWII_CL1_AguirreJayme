@@ -18,10 +18,10 @@ public class Especilidad {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String IdEsp;
+    private String idesp;
 
-    @Column(name = "NomEsp")
-    private String NomEsp;
+    @Column(name = "nomesp")
+    private String nomesp;
 
     @JsonManagedReference
     @OneToMany

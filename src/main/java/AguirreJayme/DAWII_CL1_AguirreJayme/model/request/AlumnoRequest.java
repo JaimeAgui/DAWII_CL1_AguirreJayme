@@ -7,9 +7,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public class AlumnoRequest {
-    private String IdAlumno;
-    private String ApeAlumno;
-    private String NomAlumno;
-    private String IdEsp;
-    private String Proce;
+    private String idalumno;
+    private String apealumno;
+    private String nomalumno;
+    private String idesp;
+    private String proce;
 }

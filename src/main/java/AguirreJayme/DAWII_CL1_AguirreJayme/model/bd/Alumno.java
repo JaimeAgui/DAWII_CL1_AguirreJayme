@@ -12,21 +12,20 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class Alumno {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String IdAlumno;
-    @Column(name = "ApeAlumno")
-    private String ApeAlumno;
-    @Column(name = "NomAlumno")
-    private String NomAlumno;
-    @Column(name = "IdEsp")
-    private String IdEsp;
-    @Column(name = "Proce")
-    private String Proce;
+    private String idalumno;
+    @Column(name = "apealumno")
+    private String apealumno;
+    @Column(name = "nomalumno")
+    private String nomalumno;
+    @Column(name = "proce")
+    private String proce;
 
     @JsonBackReference
     @ManyToOne
-    @JoinColumn(name = "idestado")
-    private Especilidad estado;
+    @JoinColumn(name = "idesp")
+    private Especilidad especilidad;
 
 }

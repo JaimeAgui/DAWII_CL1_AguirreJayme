@@ -19,7 +19,7 @@ public class EspecilidadService {
     public void registrarEspecilidad(Especilidad especilidad){
         EspecilidadRepository.save(especilidad);
     }
-    public void eliminarEspecilidad(Especilidad especilidad){EspecilidadRepository.deleteById(especilidad.getIdEsp());
+    public void eliminarEspecilidad(Especilidad especilidad){EspecilidadRepository.deleteById(especilidad.getIdesp());
     }
 
 }
